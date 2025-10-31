@@ -1,0 +1,18 @@
+{
+  "name": "arduino-captcha-bridge",
+  "version": "1.0.0",
+  "description": "Node.js bridge to forward Arduino CAPTCHA over Socket.IO",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "serialport": "^11.0.0",
+    "@serialport/parser-readline": "^11.0.0"
+  }
+}

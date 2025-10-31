@@ -1,0 +1,150 @@
+Microsoft Windows [Version 10.0.22000.2538]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>CD C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>
+The syntax of the command is incorrect.
+
+C:\Windows\system32>CD "C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>"
+
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>set SERIAL_PATH=COM18 && node server.js
+Server listening on http://localhost:3000
+Failed to open serial port: Opening COM18 : Access denied
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>DEVMGMT.MSC
+
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>set SERIAL_PATH=COM19 && node server.js
+Server listening on http://localhost:3000
+Serial open on COM19  @ 9600
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>node server.js
+Server listening on http://localhost:3000
+Serial open on COM19  @ 9600
+[Serial] ?xFoZl
+[Serial] ?F9NZ1
+[Serial] ??R29l
+[Serial] K7kVD5
+[Serial] ?E97RV
+[Serial] ?79F0?
+[Serial] 3333F?
+[Serial] 955??3
+[Serial] 3!JVR?
+[Serial] 193vZZ
+[Serial] QAJ5lF
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>node server.js
+Server listening on http://localhost:3000
+Serial open on COM19  @ 9600
+[Serial] Vu!?7F
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>node server.js
+Server listening on http://localhost:3000
+Serial open on COM19  @ 9600
+[Serial] B!3U!Z
+[Serial] M?U3?3
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>node server.js
+Server listening on http://localhost:3000
+Serial open on COM19  @ 9600
+[Serial] MTFF?C
+Client connected dedL9DoQmnM57zzrAAAB
+[Serial] YE??61
+[Serial] C5??N3
+[Serial] 3?v??T
+Client disconnected dedL9DoQmnM57zzrAAAB
+Client connected e_6vbFAuOiOjoi7iAAAD
+Client disconnected e_6vbFAuOiOjoi7iAAAD
+Serial port closed; attempting to reopen in 3s...
+Failed to open serial port: Opening COM19 : File not found
+Client connected tsDqDo-Z38TL1BaNAAAF
+Client disconnected tsDqDo-Z38TL1BaNAAAF
+Client connected 43vduopMK1PRq0NHAAAH
+Client disconnected 43vduopMK1PRq0NHAAAH
+Client connected nW51S9DTMyuU47AhAAAJ
+Client disconnected nW51S9DTMyuU47AhAAAJ
+Client connected aBFrVgBxADu1wtJXAAAL
+Client disconnected aBFrVgBxADu1wtJXAAAL
+Client connected Rayq1j8LYi3gGZrSAAAN
+Client disconnected Rayq1j8LYi3gGZrSAAAN
+Client connected DpYAVned_q6EAafhAAAP
+Client disconnected DpYAVned_q6EAafhAAAP
+Client connected aj_IJ2K2IHlcK1hAAAAR
+Client disconnected aj_IJ2K2IHlcK1hAAAAR
+Client connected TtNz3wHvibo-htX7AAAT
+Client disconnected TtNz3wHvibo-htX7AAAT
+Client connected UCOEgELn9wxBCcN8AAAV
+Client disconnected UCOEgELn9wxBCcN8AAAV
+Client connected iyv5A_Uz0EBNpS7PAAAX
+Client disconnected iyv5A_Uz0EBNpS7PAAAX
+Client connected iZXHtNODmez3MjSnAAAZ
+Client disconnected iZXHtNODmez3MjSnAAAZ
+Client connected PhvOAlLwRwiV4BWTAAAb
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>node server.js
+Server listening on http://localhost:3000
+Failed to open serial port: Opening COM19 : File not found
+Client connected wFKErBYT-4EwLpd-AAAB
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>node server.js
+Server listening on http://localhost:3000
+Failed to open serial port: Opening COM19 : File not found
+Client connected Z1pwTLluOtZSLHtXAAAB
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>set SERIAL_PATH=COM15 && node server.js
+Server listening on http://localhost:3000
+Serial open on COM15  @ 9600
+[Serial] !V9Nx9
+[Serial] 3?!EJF
+Client connected GA6G2R1IGRT2MtxaAAAB
+Client disconnected GA6G2R1IGRT2MtxaAAAB
+Client connected ilII-JhXvyTUXOzDAAAD
+[Serial] V3??3?
+Client disconnected ilII-JhXvyTUXOzDAAAD
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>node server.js
+Server listening on http://localhost:3000
+Serial open on COM15  @ 9600
+[Serial] z?93FV
+[Serial] Z?!?x?
+[Serial] ??9X3F
+Serial port closed; attempting to reopen in 3s...
+Failed to open serial port: Opening COM15 : File not found
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>node server.js
+Server listening on http://localhost:3000
+Serial open on COM15  @ 9600
+[Serial] 9!4323
+[Serial] zT0F?T
+[Serial] 33VBFP
+[Serial] V?FZp7
+Client connected 8bNrbNFq2znpo-MZAAAB
+[Serial] 39?93p
+[Serial] 3?1U71
+[Serial] o?zZ!3
+[Serial] H?FV9h
+[Serial] Ep7?v7
+[Serial] 8vNVD!
+Client disconnected 8bNrbNFq2znpo-MZAAAB
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>node server.js
+Server listening on http://localhost:3000
+Serial open on COM15  @ 9600
+Client connected rAbwuXGVR8Z4u9WZAAAB
+Client disconnected rAbwuXGVR8Z4u9WZAAAB
+Client connected KZMLdvjFEsoKlt3XAAAD
+[Serial] VpV3F3
+[Serial] U??R!T
+[Serial] !D55?F
+[Serial] V??V?!
+[Serial] q3E97U
+[Serial] ?Vhx7?
+Client connected X1B6yqvnsllXabPlAAAF
+[Serial] 83P1!v
+[Serial] 83F377
+[Serial] V?2??3
+Client disconnected KZMLdvjFEsoKlt3XAAAD
+Client disconnected X1B6yqvnsllXabPlAAAF
+Client connected oumiz-88_wchXGa7AAAH
+Client disconnected oumiz-88_wchXGa7AAAH
+^C
+C:\Users\dipes\OneDrive\Desktop\physics project\arduino-captcha-bridge>
+

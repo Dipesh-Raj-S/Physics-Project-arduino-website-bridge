@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Account</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .captcha-container { display:flex; align-items:center; gap:8px; margin:8px 0; }
+    canvas { border:1px solid #ccc; background:#fff; }
+    .error { color:#b00020; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <div class="container form-container">
+    <div class="back-arrow" onclick="window.location.href='register.html'">&#8592; Back</div>
+    <h2>Create Account</h2>
+    <form id="registerForm" autocomplete="off">
+      <input type="text" placeholder="Username" id="regUser" required />
+      <input type="password" placeholder="Password" id="regPass" required />
+      <input type="password" placeholder="Confirm Password" id="regPass2" required />
+      <input type="date" placeholder="Date of Birth" id="regDOB" required />
+      <input type="email" placeholder="Email" id="regEmail" required />
+
+      <div class="captcha-container">
+        <canvas id="regCaptcha" width="160" height="44" aria-label="CAPTCHA image"></canvas>
+        <button type="button" id="refreshCaptchaBtn" title="Refresh Captcha">↻</button>
+      </div>
+
+      <input type="text" placeholder="Enter Captcha" id="captchaInput" required />
+      <button type="submit" class="btn">Register</button>
+    </form>
+    <div id="regError" class="error"></div>
+  </div>
+
+  <!-- Keep your existing site script if needed -->
+  <script src="assets/script.js"></script>
+
+  <!-- Socket.IO client (CDN) -->
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+  <script>
+    // CONFIG:
+    // If the bridge runs on the same host, leave as null. Otherwise set to 'http://<BRIDGE_IP>:3000'
+    const BRIDGE_URL = null; // e.g. 'http://192.168.1.42:3000'
+
+    // Connect to bridge (same origin if BRIDGE_URL is null)
+    const socket = BRIDGE_URL ? io(BRIDGE_URL) : io();
+
+    const canvas = document.getElementById('regCaptcha');
+    const ctx = canvas.getContext('2d');
+    const refreshBtn = document.getElementById('refreshCaptchaBtn');
+    const regForm = document.getElementById('registerForm');
+    const captchaInput = document.getElementById('captchaInput');
+    const regError = document.getElementById('regError');
+
+    let currentCaptcha = null;
+
+    function drawCaptcha(text) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#f7f7f7';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < 12; i++) {
+        ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+        ctx.beginPath();
+        ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+        ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
+        ctx.stroke();
+      }
+      ctx.font = 'bold 26px Arial, sans-serif';
+      ctx.fillStyle = '#111';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, 12, canvas.height / 2);
+    }
+
+    async function fetchLastCaptcha() {
+      try {
+        const base = BRIDGE_URL || '';
+        const res = await fetch(base + '/api/captcha', { cache: 'no-store' });
+        if (!res.ok) return;
+        const j = await res.json();
+        if (j && j.captcha) {
+          currentCaptcha = String(j.captcha).trim();
+          drawCaptcha(currentCaptcha);
+        }
+      } catch (e) {
+        console.warn('Failed to fetch last captcha', e);
+      }
+    }
+
+    socket.on('connect', () => {
+      console.log('Connected to Arduino bridge');
+      fetchLastCaptcha();
+    });
+
+    socket.on('captcha', (value) => {
+      if (!value) return;
+      currentCaptcha = String(value).trim();
+      drawCaptcha(currentCaptcha);
+      console.log('Received captcha:', currentCaptcha);
+    });
+
+    socket.on('serial', (line) => {
+      console.log('Serial:', line);
+    });
+
+    socket.on('disconnect', () => {
+      console.log('Disconnected from bridge');
+    });
+
+    refreshBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      fetchLastCaptcha();
+    });
+
+    regForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      regError.textContent = '';
+
+      const typed = (captchaInput.value || '').trim();
+      if (!currentCaptcha) {
+        regError.textContent = 'CAPTCHA not available. Press refresh or ask to generate one.';
+        return;
+      }
+      if (!typed) {
+        regError.textContent = 'Please enter the CAPTCHA.';
+        return;
+      }
+      if (typed !== currentCaptcha) {
+        regError.textContent = 'Incorrect CAPTCHA. Please try again.';
+        return;
+      }
+
+      // CAPTCHA correct — proceed with registration logic
+      const payload = {
+        username: document.getElementById('regUser').value,
+        password: document.getElementById('regPass').value,
+        dob: document.getElementById('regDOB').value,
+        email: document.getElementById('regEmail').value
+      };
+      console.log('Captcha validated — registration payload:', payload);
+      alert('Registration CAPTCHA validated. Now send payload to server (implement server call).');
+      captchaInput.value = '';
+    });
+
+    // initial placeholder
+    drawCaptcha('------');
+    fetchLastCaptcha();
+  </script>
+</body>
+</html>
